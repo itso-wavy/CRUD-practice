@@ -1,4 +1,5 @@
-# test
+# JS-challenges
+
 ```mermaid
         graph TD
         A[하루 시작] -->|일어난다| B(세수한다)
