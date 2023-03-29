@@ -11,24 +11,10 @@
     * {
       font-family: NanumGothic, 'Malgun Gothic';
     }
-
-    html,
-    body {
-      overflow-x: hidden;
-      /* 좁은 화면에서 스크롤 방지 */
-    }
-
-    body {
-      padding-top: 70px;
-    }
-
-    footer {
-      padding: 30px 0;
-    }
   </style>
 </head>
 
-<body>
+<body class="p-5">
   <div class="container">
     <h1><a class="navbar-brand" href="#">CRUD 스토어🐸</a></h1>
   </div><!--/header-->
@@ -37,7 +23,7 @@
     <div class="row row-offcanvas row-offcanvas-right">
       <div class="col-xs-12 col-sm-9">
         <div class="jumbotron">
-          <form class="mt-5 mb-4">
+          <form action="/" class="mt-5 mb-4">
             <div class="mb-1">
               <label for="product-name" class="form-label">상품명</label>
               <input type="text" class="form-control" id="product-name">
@@ -54,31 +40,14 @@
               <label for="stock" class="form-label">재고</label>
               <input type="number" class="form-control" id="stock">
             </div>
-            <button type="submit" class="btn btn-primary mt-2">등록하기</button>
-            <button type="submit" class="btn btn-primary mt-2">불러오기</button>
-            <!-- <div class="mb-1">
-                <label for="product-name" class="form-label">상품명</label>
-                <input type="text" class="form-control" id="product-name">
-              </div>
-              <div class="mb-1">
-                <label for="product-price" class="form-label">가격</label>
-                <input type="number" class="form-control" id="product-price">
-              </div>
-              <button type="submit" class="btn btn-primary">수정하기</button>
-              <button type="submit" class="btn btn-primary">취소하기</button> -->
+            <button class="btn btn-primary mt-2" id="btn-regist">등록/수정하기</button>
+            <button class="btn btn-primary mt-2" id="btn-call">불러오기</button>
           </form>
         </div><!--/form-->
 
-        <div class="row" id="board">
-          <div class="col-6 col-sm-6 col-lg-4">
-            <h2>product-name</h2>
-            <img src="" alt="">
-            <p>price</p>
-            <p>release-date</p>
-            <p>stock</p>
-            <a class="btn btn-default" href="#" role="button">더보기 &raquo;</a>
-          </div>
-        </div><!--/grid-->
+        <hr>
+        <div class="row mt-5" id="board">
+        </div><!--/board-->
       </div>
 
       <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
@@ -88,11 +57,7 @@
           <a href="#" class="list-group-item">신규</a>
         </div>
       </div>
-    </div><!--/nav-->
-    <hr>
-    <footer>
-      <p>&copy; Jmnote.com 2014</p>
-    </footer>
+    </div><!--/sidebar-->
   </div><!--/.container-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script src="crud.js"></script>
