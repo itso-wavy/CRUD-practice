@@ -1,3 +1,3 @@
 # CRUD-practice
 
-`json-server --watch db.json`
+`json-server --watch src/db.json`
