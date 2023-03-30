@@ -115,6 +115,13 @@
       "viewCount": 0,
       "pubDate": "2022-02-28",
       "modDate": "2022-02-28"
+    },
+    {
+      "id": 1680163997726,
+      "productName": "쿠키",
+      "price": "1000",
+      "pubDate": "2023-03-30",
+      "stockCount": "1"
     }
   ]
 }

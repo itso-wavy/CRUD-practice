@@ -6,7 +6,7 @@
     - [4) 전송](#4-전송)
   - [(2) 예시](#2-예시)
 - [2. Promise](#2-promise)
-- [3. Fetch API(Promise)](#3-fetch-apipromise)
+- [3. Fetch API](#3-fetch-api)
   - [(1) JSON 전송](#1-json-전송)
   - [(2) FILE 전송](#2-file-전송)
 - [4. Async/Await](#4-asyncawait)
@@ -135,7 +135,7 @@ return new Promise((resolve, reject) => {
   });
 ```
 
-# 3. Fetch API(Promise)
+# 3. Fetch API
 
 ## (1) JSON 전송
 
