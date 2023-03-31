@@ -1,3 +1,4 @@
+> Table of Contents 
 - [1. XMLHttpRequest 객체](#1-xmlhttprequest-객체)
   - [(1) 사용법](#1-사용법)
     - [1) 생성](#1-생성)
@@ -10,6 +11,11 @@
   - [(1) JSON 전송](#1-json-전송)
   - [(2) FILE 전송](#2-file-전송)
 - [4. Async/Await](#4-asyncawait)
+
+
+<br>
+
+<br>
 
 
 # 1. XMLHttpRequest 객체

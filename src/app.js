@@ -1,13 +1,13 @@
+const board = document.querySelector('#board');
 const nameInput = document.querySelector('#product-name');
 const priceInput = document.querySelector('#product-price');
 const dateInput = document.querySelector('#release-date');
 const stockInput = document.querySelector('#stock');
 const btnGet = document.querySelector('#btn-get');
 const btnPost = document.querySelector('#btn-post');
-const board = document.querySelector('#board');
 const form = document.querySelector('form');
 
-function drawingBoard(product) {
+function renderBoard(product) {
   board.innerHTML = '';
   product.forEach(item => {
     const box = document.createElement('a');
@@ -20,7 +20,10 @@ function drawingBoard(product) {
     const btnDelete = document.createElement('button');
     btnPut.textContent = '수정';
     btnDelete.textContent = '삭제';
+    btnPut.setAttribute('onclick', 'putProductData(this)');
     btnPut.classList.add('btn', 'btn-outline-primary', 'btn-sm');
+    btnDelete.setAttribute('onclick', 'deleteProductData(this)');
+    btnbox.setAttribute('data-id', item.id);
     btnDelete.classList.add('btn', 'btn-outline-primary', 'btn-sm');
     infobox.classList.add('mt-3', 'd-flex', 'justify-content-between');
     priceTag.classList.add('mr-auto');
@@ -33,16 +36,13 @@ function drawingBoard(product) {
       'mb-3',
       'container',
       'btn',
-      'btn-default',
       'text-start'
     );
     box.setAttribute('href', '#');
 
     nameTag.textContent = item.productName;
-    img.setAttribute(
-      'src',
-      `http://test.api.weniv.co.kr/${item.thumbnailImg}` || null
-    );
+    img.setAttribute('src', `http://test.api.weniv.co.kr/${item.thumbnailImg}`);
+
     priceTag.textContent = item.price;
     const priceType = document.createElement('span');
     priceType.textContent = '원';
@@ -59,14 +59,14 @@ function drawingBoard(product) {
   });
 }
 
-// GET(생성)
+// GET(조회)
 async function getProductData() {
   const res = await fetch('http://localhost:3000/product');
   const product = await res.json();
-  drawingBoard(product);
+  renderBoard(product);
 }
 
-// POST(조회)
+// POST(생성)
 async function postProductData() {
   const res = await fetch('http://localhost:3000/product', {
     method: 'POST',
@@ -82,13 +82,39 @@ async function postProductData() {
     }),
   });
   const product = await res.json();
-  console.log(product);
-  drawingBoard(product);
+  renderBoard(product);
 }
 
-// PUT(수정)
+// PATCH(일부 수정)
+function putProductData(obj) {
+  btnPost.classList.toggle('btn-warning');
+  btnPost.textContent = '수정하기';
+  btnPost.addEventListener('click', async () => {
+    const id = obj.parentElement.dataset.id;
+    const res = await fetch(`http://localhost:3000/product/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify({
+        productName: nameInput.value,
+        price: priceInput.value,
+        pubDate: dateInput.value,
+        stockCount: stockInput.value,
+      }),
+    });
+    const product = res.json();
+    renderBoard(product);
+  });
+}
 
 // DELETE(삭제)
+async function deleteProductData(obj) {
+  const id = obj.parentElement.dataset.id;
+  fetch(`http://localhost:3000/product/${id}`, {
+    method: 'DELETE',
+  });
+}
 
 // 버튼 기능 구현
 btnGet.addEventListener('click', e => {
