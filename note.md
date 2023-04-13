@@ -36,8 +36,8 @@ xhr.open({HTTP Method}, {url}, [?비동기 여부]);
 // query로 조회 'http://localhost:3000/product?stockCount=0'
 
 HTTP_Method = {
-  GET: 'Create(생성)', 
-  POST: 'Read(조회)',
+  POST: 'Create(생성)', 
+  GET: 'Read(조회)',
   PUT: 'Update(수정)',
   PATCH: '일부 수정',
   DELETE: 'Delete(삭제)'
