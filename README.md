@@ -1,6 +1,8 @@
 # CRUD-practice
 
-<img src="https://user-images.githubusercontent.com/108520997/233773834-7b735baf-e78b-4cb7-a302-f88f2f454c11.png" >
+|<img src="https://user-images.githubusercontent.com/108520997/233774026-7161f474-6250-411d-ae21-50b7232df22f.png" width=800 >|<img src="https://user-images.githubusercontent.com/108520997/233774023-be3859bd-56a1-4de8-8398-7ff4c3a10b8a.png" >|
+|---|---|
+|<p align="center">웹</p>|<p align="center">모바일</p>|
 
 * start command: `json-server --watch src/db.json`
 
